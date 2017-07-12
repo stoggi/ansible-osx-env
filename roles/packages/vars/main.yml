@@ -1,70 +1,33 @@
 ---
 
-osx_login_shell: /usr/local/bin/fish
-
-rbenv_version: '2.3.2'
-
-ruby_gems:
-  - puppet-lint
-  - tmuxinator
-  - lunchy
-
-homebrew_taps:
-  - ethereum/ethereum
-  - homebrew/completions
-  - homebrew/binary
-  - caskroom/cask
-
 homebrew_packages:
-  - autoconf
-  - automake
-  - autossh
+  - chruby
   - coreutils
   - curl
-  - ctags
   - dnstracer
   - docker
   - docker-compose
-  - editorconfig
-  - fzf
   - git
   - git-lfs
-  - homebrew/versions/gnupg21
   - gnu-tar
-  - gpg
   - go
+  - gpg
   - htop-osx
-  - hub
-  - libevent
-  - libtool
-  - libyaml
-  - lua
-  - makedepend
-  - neovim/neovim/neovim
-  - mtr
   - ncdu
   - nmap
   - node
-  - npm
   - openssl
-  - pass
-  - pcre
-  - pkg-config
-  - pow
   - python
-  - readline
-  - sqlite
-  - ssh-copy-id
+  - ruby-install
   - sysdig
   - terraform
-  - tmux
-  - tmux-mem-cpu-load
-  - { name: 'reattach-to-user-namespace', install_options: 'wrap-pbcopy-and-pbpaste' }
-  - xz
-  - weechat
-  - wireshark
+  - tig
+  - wget
 
 npm_packages:
-  - gulp
   - bower
+  - gulp
   - spoof
+
+python_packages:
+  - pipenv

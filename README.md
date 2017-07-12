@@ -1,5 +1,5 @@
 # ansible-osx-env
-An Ansible playbook for provisioning a local OS X system.
+An Ansible playbook for provisioning a local OS X system. Heavily based on ansible-osx-env by github.com/richardrowe modified for own use.
 
 # Prerequisites
 

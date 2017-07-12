@@ -1,5 +1,0 @@
----
-
-- name: restart nfsd
-  command: /sbin/nfsd restart
-  become: yes

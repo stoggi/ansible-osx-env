@@ -24,24 +24,6 @@
     value: "true"
     type: boolean
 
-# Public: Disables keyboard press-and-hold for accented character entry.
-- name: disable press-and-hold for accented characters
-  osx_defaults:
-    domain: NSGlobalDomain
-    state: present
-    key: ApplePressAndHoldEnabled
-    value: "false"
-    type: boolean
-
-# Enables keyboard access for dialog controls
-- name: enable full keyboard access for all controls
-  osx_defaults:
-    domain: NSGlobalDomain
-    key: AppleKeyboardUIMode
-    state: present
-    value: 3
-    type: int
-
 # Disable remote control infrared receiver. Requires re-login
 - name: disable remote control infrared receiver
   osx_defaults:
@@ -50,31 +32,6 @@
     key: DeviceEnabled
     value: "false"
     type: boolean
-
-# Enables Tap to click
-- name: tap-to-click bluetooth
-  osx_defaults:
-    domain: com.apple.driver.AppleBluetoothMultitouch.trackpad
-    key: Clicking
-    state: present
-    value: 1
-    type: int
-
-- name: tap-to-click mouse
-  osx_defaults:
-    domain: NSGlobalDomain
-    key: com.apple.mouse.tapBehavior
-    state: present
-    value: 1
-    type: int
-
-- name: tap-to-click current host
-  osx_defaults:
-    domain: NSGlobalDomain
-    key: com.apple.mouse.tapBehavior
-    state: present
-    value: 1
-    type: int
 
 # Causes the dock to hide itself when you're not pointing at it
 - name: automatically hide the dock
@@ -94,31 +51,6 @@
     state: present
     value: "true"
     type: boolean
- 
-# Remaps capslock to control on attached keyboards
-- name: get id for built-in keyboard
-  shell: >
-    ioreg -n IOHIDKeyboard -r | 
-    grep -E 'VendorID"|ProductID' | 
-    awk '{print $4}' |
-    paste -s -d'-\n' -
-  register: keyboard_id
-
-
-- name: "Read builtin keyboard map for caps lock setup"
-  shell: >
-    defaults -currentHost read -g
-    "com.apple.keyboard.modifiermapping.{{ keyboard_id.stdout }}-0" |
-    perl -pe 's/(\n|\s+|{|}|\(|\)|\=|\;)//g' |
-    perl -pe 's/HIDKeyboardModifierMapping//g'
-  register: current_layout
-
-- name: "Ensure builtin keyboard maps caps lock to control"
-  shell: >
-    defaults -currentHost write -g
-    "com.apple.keyboard.modifiermapping.{{ keyboard_id.stdout }}-0"
-    -array "{HIDKeyboardModifierMappingDst=2;HIDKeyboardModifierMappingSrc=0;}"
-  when: current_layout.stdout != "Dst2Src0"
 
 # This option is in System Preferences > Users & Groups > Guest User
 - name: disable guest account
@@ -157,15 +89,6 @@
     state: present
     value: 0
     type: float
-
-# This option is in Finder -> |||
-#- name: multi-list view default
-#  osx_defaults:
-#    domain: com.apple.Finder
-#    key: FXPreferredViewStyle
-#    state: present
-#    value: "clmv"
-#    type: string
 
 # Always show hidden files in Finder
 - name: always show hidden files in finder

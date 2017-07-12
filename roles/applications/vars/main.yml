@@ -5,31 +5,21 @@ caskroom_dir: /usr/local/Caskroom
 
 homebrew_cask_packages:
   - 1password
-  - appcleaner
-  - atom
-  - cloak
+  - daisydisk
+  - dash
   - docker
-  - dropbox
-  - firefox
+  - gimp
   - google-chrome
   - gpgtools
-  - hammerspoon
   - iterm2
-  - java
   - keepingyouawake
-  - knockknock
   - little-snitch
   - micro-snitch
-  - macdown
-  - mactex
-  - owasp-zap
-  - phpstorm
-  - shortcat
   - slack
-  - torbrowser
-  - transmission
+  - spectacle
+  - sublime-text
   - tunnelblick
+  - vagrant
   - virtualbox
-  - virtualbox-extension-pack
   - vlc
   - wireshark

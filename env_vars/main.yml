@@ -1,4 +1,4 @@
 ---
-user: richard
+user: jeremy
 group: staff
 home: "/Users/{{ user }}"

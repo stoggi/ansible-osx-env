@@ -1,8 +1,0 @@
----
-
-# sysctl
-
-sysctl_config:
-  - { name: 'kern.aiomax', value: 128 }
-  - { name: 'kern.aioprocmax', value: 32 }
-  - { name: 'kern.aiothreads', value: 4 }
