@@ -4,6 +4,8 @@
 
 - name: Download keyserver certs
   shell: 'curl -o /etc/sks-keyservers.netCA.pem https://sks-keyservers.net/sks-keyservers.netCA.pem'
+  args:
+    creates: "/etc/sks-keyservers.netCA.pem"
   become: true
 
 # Hides desktop items
@@ -24,22 +26,13 @@
     value: "true"
     type: boolean
 
-# Disable remote control infrared receiver. Requires re-login
-- name: disable remote control infrared receiver
-  osx_defaults:
-    domain: /Library/Preferences/com.apple.driver.AppleIRController'
-    state: present
-    key: DeviceEnabled
-    value: "false"
-    type: boolean
-
 # Modify 'natural' mouse scrolling (enable or disable). Requires re-login
 - name: disable natural mouse scrolling
   osx_defaults:
     domain: NSGlobalDomain
     key: com.apple.swipescrolldirection
     state: present
-    value: "true"
+    value: "false"
     type: boolean
 
 # This option is in System Preferences > Users & Groups > Guest User
