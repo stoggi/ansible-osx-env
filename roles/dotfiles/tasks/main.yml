@@ -2,9 +2,11 @@
 
 - name: "Clone the .dotfiles repo from GitHub"
   git:
-    repo=git@github.com:stoggi/dotfiles.git
-    dest={{ home }}/.dotfiles
-    bare=true
+    repo: git@github.com:stoggi/dotfiles.git
+    dest: "{{ home }}/.dotfiles"
+    bare: true
 
 - name: "Checkout repo into home directory"
-  shell: "/usr/local/bin/git --git-dir={{ home }}/.dotfiles --work-tree={{ home }} checkout master"
+  command: "/usr/local/bin/git --git-dir={{ home }}/.dotfiles --work-tree={{ home }} checkout master"
+  args:
+    creates: "{{ home }}/.bashrc"

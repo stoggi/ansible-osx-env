@@ -26,4 +26,6 @@
   with_items: "{{ python_packages }}"
 
 - name: "Install ruby"
-  shell: "/usr/local/bin/ruby-install ruby"
+  command: "/usr/local/bin/ruby-install ruby"
+  args:
+    creates: "{{ home }}/.rubies"

@@ -33,16 +33,6 @@
     value: "false"
     type: boolean
 
-# Causes the dock to hide itself when you're not pointing at it
-- name: automatically hide the dock
-  osx_defaults:
-    domain: com.apple.dock
-    state: present
-    key: autohide
-    value: "true"
-    type: boolean
-  notify: kill dock
-
 # Modify 'natural' mouse scrolling (enable or disable). Requires re-login
 - name: disable natural mouse scrolling
   osx_defaults:
