@@ -1,5 +1,5 @@
 ---
-  - name: Pull down the .dotfiles fork from GitHub
+  - name: Clone the .dotfiles repo from GitHub
     git:
-      repo=https://github.com/stoggi/dotfiles.git
+      repo=git@github.com:stoggi/dotfiles.git
       dest={{ home }}/.dotfiles
