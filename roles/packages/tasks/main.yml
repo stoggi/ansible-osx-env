@@ -27,5 +27,3 @@
 
 - name: "Install ruby"
   shell: "/usr/local/bin/ruby-install ruby"
-  register: install_result
-  changed_when: install_result.stderr
