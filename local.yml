@@ -4,9 +4,6 @@
   hosts: localhost
   become: no
   become_method: sudo
-  connection: local
-  vars:
-    - connection: local
   vars_files:
     - env_vars/main.yml
 
