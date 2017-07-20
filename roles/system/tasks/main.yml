@@ -3,9 +3,9 @@
 - include: disable-apple-callbacks.yml
 
 - name: Download keyserver certs
-  shell: 'curl -o /etc/sks-keyservers.netCA.pem https://sks-keyservers.net/sks-keyservers.netCA.pem'
-  args:
-    creates: "/etc/sks-keyservers.netCA.pem"
+  get_url: 
+    url: https://sks-keyservers.net/sks-keyservers.netCA.pem
+    dest: /etc/sks-keyservers.netCA.pem
   become: true
 
 # Hides desktop items
@@ -24,7 +24,7 @@
     key: DSDontWriteNetworkStores
     state: present
     value: "true"
-    type: boolean
+    type: string
 
 # Modify 'natural' mouse scrolling (enable or disable). Requires re-login
 - name: disable natural mouse scrolling

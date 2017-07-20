@@ -1,5 +1,5 @@
 # ansible-osx-env
-An Ansible playbook for provisioning a local OS X system. Heavily based on ansible-osx-env by github.com/richardrowe modified for own use.
+An Ansible playbook for provisioning a local OS X system. Heavily based on ansible-osx-env by github.com/richardrowe modified for my own use.
 
 # Prerequisites
 
@@ -20,18 +20,20 @@ An Ansible playbook for provisioning a local OS X system. Heavily based on ansib
   $ brew doctor
   ```
 
-4. Install Ansible
+4. Install Python / Pipenv
   ```bash
-  $ brew install ansible
+  $ brew install python
+  $ pip install pipenv
   ```
 
-5. Clone this repo locally
+4. Clone this repository and install Ansible
   ```bash
-  $ git clone https://github.com/richardrowe/ansible-osx-env.git
+  $ git clone https://github.com/stoggi/ansible-osx-env.git
+  $ cd ansible-osx-env
+  $ pipenv install
   ```
 
-OR
-
-Run the `bootstrap.sh` script:
-
-```$ bootstrap.sh```
+5. Run ansible
+  ```bash
+  $ pipenv run ansible-playbook --ask-sudo-pass -i ./inventory local.yml --connection=local
+  ```
